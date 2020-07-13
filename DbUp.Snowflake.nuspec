@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<package>
+  <metadata>
+    <id>DbUp.Snowflake</id>
+    <version>0.0.2</version>
+    <title>DbUp Snowflake Extensions</title>
+    <authors>Viostream</authors>
+    <owners>Viostream</owners>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/viostream/dbup-snowflake/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Snowflake extensions for DbUp</description>
+    <releaseNotes>Why are the release notes embedded in the xml?</releaseNotes>
+    <copyright>Copyright 2020 Viocorp International P/L</copyright>
+    <tags>snowflake dbup migration database</tags>
+    <dependencies>
+      <group targetFramework="netstandard2.0">
+        <dependency id="DbUp" version="4.4.0" />
+      </group>
+      <group targetFramework="netstandard2.1">
+        <dependency id="DbUp" version="4.4.0" />
+      </group>
+    </dependencies>
+    <summary>Use DbUp to manage your Snowflake migrations.</summary>
+  </metadata>
+  <files>
+    <file src="bin/Release/**" target = "lib/"/>
+    <file src="LICENCE.md" target = "lib/DbUp.Snowflake.Licence.md"/>
+  </files>
+</package>
