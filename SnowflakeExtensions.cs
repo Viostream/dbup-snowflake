@@ -76,7 +76,6 @@ public static class SnowflakeExtensions
         builder.Configure(c => c.ConnectionManager = connectionManager);
         builder.Configure(c => c.ScriptExecutor = new SnowflakeScriptExecutor(() => c.ConnectionManager, () => c.Log, schema, () => c.VariablesEnabled, c.ScriptPreprocessors, () => c.Journal));
         builder.Configure(c => c.Journal = new SnowflakeTableJournal(() => c.ConnectionManager, () => c.Log, schema, "schema_versions"));
-        //builder.WithPreprocessor(new  SnowflakePreprocessor());
         return builder;
     }
 

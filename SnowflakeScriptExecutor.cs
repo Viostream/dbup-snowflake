@@ -20,11 +20,11 @@ namespace DbUp.Snowflake
             return $@"CREATE SCHEMA IF NOT EXISTS {schema}";
         }
 
-        protected override void ExecuteCommandsWithinExceptionHandler(int index, SqlScript script, Action excuteCommand)
+        protected override void ExecuteCommandsWithinExceptionHandler(int index, SqlScript script, Action executeCallback)
         {
             try
             {
-                excuteCommand();
+                executeCallback();
             }
             catch (OdbcException ex)
             {
@@ -32,7 +32,6 @@ namespace DbUp.Snowflake
                 Log().WriteError(ex.ToString());
                 throw;
             }
-
         }
     }
 }
