@@ -1,5 +1,7 @@
 # DbUp Snowflake extensions
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Viostream_dbup-snowflake&metric=alert_status)](https://sonarcloud.io/dashboard?id=Viostream_dbup-snowflake)
+
 Snowflake extentions for DbUp, distributed via [NuGet](https://www.nuget.org/packages/DbUp.Snowflake)
 
 ## Build and publish (for now)
