@@ -16,8 +16,15 @@ jobs:
         with:
           # Disabling shallow clone is recommended for improving relevancy of reporting
           fetch-depth: 0
-      - name: SonarCloud Scan
-        uses: sonarsource/sonarcloud-github-action@master
+      - name: Sonarscanner for dotnet
+        uses: Secbyte/dotnet-sonarscanner@v2.3
+        with:
+          buildCommand: dotnet build .
+          projectKey: Viostream_dbup-snowflake
+          projectName: dbup-snowflake
+          sonarOrganisation: viostream
+          beginArguments: >
+            /d:sonar.verbose="true"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
