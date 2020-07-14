@@ -6,4 +6,6 @@
     <PackageReference Include="dbup-core" Version="4.4.0" />
     <PackageReference Include="System.Data.Odbc" Version="4.7.0" />
   </ItemGroup>
+  <!-- SonarQube needs this -->
+  <ProjectGuid>{66666666-FECC-FECC-FECC-666666666666}</ProjectGuid>
 </Project>
