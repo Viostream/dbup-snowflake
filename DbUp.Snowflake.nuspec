@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>DbUp.Snowflake</id>
-    <version>0.0.2</version>
+    <version>1.0.0</version>
     <title>DbUp Snowflake Extensions</title>
     <authors>Viostream</authors>
     <owners>Viostream</owners>
