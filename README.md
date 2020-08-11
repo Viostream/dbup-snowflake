@@ -5,13 +5,6 @@
 
 Snowflake extentions for DbUp, distributed via [NuGet](https://www.nuget.org/packages/DbUp.Snowflake)
 
-## Build and publish (for now)
-
-1. Update `DbUp.Snowflake.nuspec` version and release notes
-2. `dotnet build --configuration Release`
-3. `nuget pack DbUp.Snowflake.nuspec`
-4. Upload the `DbUp.Snowflake.0.0.x.nupkg` file to [NuGet](https://nuget.org)
-
 ## Install
 
 Use [Nuget](https://www.nuget.org/packages/DbUp.Snowflake/).
