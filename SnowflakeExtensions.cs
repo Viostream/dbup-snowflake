@@ -116,7 +116,7 @@ public static class SnowflakeExtensions
         return builder;
     }
 
-    public static UpgradeEngineBuilder WithVariables(this UpgradeEngineBuilder builder, IDictionary<string, string> variables)
+    public static UpgradeEngineBuilder WithSnowflakeVariables(this UpgradeEngineBuilder builder, IDictionary<string, string> variables)
     {
         var preprocessor = new SnowflakePreprocessor(variables);
         builder.Configure(c => c.ScriptPreprocessors.Add(preprocessor));
