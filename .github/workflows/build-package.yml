@@ -1,3 +1,5 @@
+name: Publish to Nuget
+
 on:
   push:
     branches:
@@ -18,7 +20,7 @@ jobs:
       - uses: rohith/publish-nuget@v2
         with:
           NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
-          PROJECT_FILE_PATH: DbUp.Snowflake.csproj
           PACKAGE_NAME: DbUp.Snowflake
+          PROJECT_FILE_PATH: DbUp.Snowflake.csproj
           TAG_COMMIT: false
           VERSION_STATIC: ${{ steps.tag.outputs.new_tag }}
