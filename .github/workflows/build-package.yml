@@ -20,7 +20,7 @@ jobs:
       - name: Write out version
         run: |
           version=${{ steps.tag.outputs.new_tag }}
-          sed -i 's|<version>0.0.1</version>|<version>'${version#v}'</version>|' DbUp.Snowflake.csproj
+          sed -i 's|<Version>0.0.1</Version>|<Version>'${version#v}'</Version>|' DbUp.Snowflake.csproj
       - uses: rohith/publish-nuget@v2
         with:
           NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
