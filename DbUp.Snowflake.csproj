@@ -3,6 +3,12 @@
     <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
     <!-- SonarQube needs this -->
     <ProjectGuid>{66666666-FECC-FECC-FECC-666666666666}</ProjectGuid>
+    <PackageId>DbUp.Snowflake</PackageId>
+    <company>Viostream</company>
+    <PackageDescription>Snowflake extensions for DbUp</PackageDescription>
+    <RepositoryUrl>https://github.com/viostream/dbup-snowflake/</RepositoryUrl>
+    <!-- The real version will be injected by Github Actions - don't change this line -->
+    <Version>0.0.1</Version>
   </PropertyGroup>
    <ItemGroup>
     <PackageReference Include="dbup-core" Version="4.4.0" />
