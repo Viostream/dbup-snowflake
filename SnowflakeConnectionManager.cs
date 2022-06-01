@@ -25,7 +25,7 @@ namespace DbUp.Snowflake
         public override IEnumerable<string> SplitScriptIntoCommands(string scriptContents)
         {
             var scriptStatements =
-                Regex.Split(scriptContents, "^*;\\s*$", RegexOptions.IgnoreCase | RegexOptions.Multiline)
+                Regex.Split(scriptContents, ";(?=(?:[^']*'[^']*')*[^']*$)")
                     .Select(x => x.Trim())
                     .Where(x => x.Length > 0)
                     .ToArray();
