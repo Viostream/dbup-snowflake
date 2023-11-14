@@ -12,6 +12,6 @@
   </PropertyGroup>
    <ItemGroup>
     <PackageReference Include="dbup-core" Version="4.4.0" />
-    <PackageReference Include="System.Data.Odbc" Version="4.7.0" />
+    <PackageReference Include="System.Data.Odbc" Version="8.0.0" />
   </ItemGroup>
 </Project>
