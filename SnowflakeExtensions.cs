@@ -22,7 +22,16 @@ public static class SnowflakeExtensions
     /// A builder for a database upgrader designed for Snowflake databases.
     /// </returns>
     public static UpgradeEngineBuilder SnowflakeDatabase(this SupportedDatabases supported, string connectionString)
-        => SnowflakeDatabase(supported, connectionString, null);
+    {
+        var connectionStringFields = connectionString.Split(';');
+        var schema = connectionStringFields
+            .FirstOrDefault(x => x.StartsWith("schema", StringComparison.InvariantCultureIgnoreCase))
+            ?.Split('=').Last();
+        var database = connectionStringFields
+            .First(x => x.StartsWith("database", StringComparison.InvariantCultureIgnoreCase) || x.StartsWith("db", StringComparison.InvariantCultureIgnoreCase))
+            .Split('=').Last();
+        return SnowflakeDatabase(new SnowflakeConnectionManager(connectionString), schema, database);
+    }
 
     /// <summary>
     /// Creates an upgrade engine builder for Snowflake databases.
@@ -35,7 +44,9 @@ public static class SnowflakeExtensions
     /// </returns>
     public static UpgradeEngineBuilder SnowflakeDatabase(this SupportedDatabases supported, string connectionString, string schema)
     {
-        var database = connectionString.Split(';').First(x => x.StartsWith("database", StringComparison.InvariantCultureIgnoreCase)).Split('=').Last();
+        var database = connectionString.Split(';')
+            .First(x => x.StartsWith("database", StringComparison.InvariantCultureIgnoreCase) || x.StartsWith("db", StringComparison.InvariantCultureIgnoreCase))
+            .Split('=').Last();
         return SnowflakeDatabase(new SnowflakeConnectionManager(connectionString), schema, database);
     }
 
