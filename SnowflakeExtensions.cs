@@ -35,7 +35,9 @@ public static class SnowflakeExtensions
     /// </returns>
     public static UpgradeEngineBuilder SnowflakeDatabase(this SupportedDatabases supported, string connectionString, string schema)
     {
-        var database = connectionString.Split(';').First(x => x.StartsWith("database", StringComparison.InvariantCultureIgnoreCase)).Split('=').Last();
+        var database = connectionString.Split(';')
+            .First(x => x.StartsWith("database", StringComparison.InvariantCultureIgnoreCase) || x.StartsWith("db", StringComparison.InvariantCultureIgnoreCase))
+            .Split('=').Last();
         return SnowflakeDatabase(new SnowflakeConnectionManager(connectionString), schema, database);
     }
 
