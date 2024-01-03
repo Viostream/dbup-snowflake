@@ -48,8 +48,8 @@ namespace DbUp.Snowflake
         /// <summary>Verify, using database-specific queries, if the table exists in the database.</summary>
         /// <returns>1 if table exists, 0 otherwise</returns>
         protected override string DoesTableExistSql() => string.IsNullOrEmpty(SchemaTableSchema)
-                ? $"select 1 from INFORMATION_SCHEMA.TABLES where TABLE_NAME = '{UnquotedSchemaTableName.ToUpper()}'"
-                : $"select 1 from INFORMATION_SCHEMA.TABLES where TABLE_NAME = '{UnquotedSchemaTableName.ToUpper()}' and TABLE_SCHEMA = '{SchemaTableSchema.ToUpper()}'";
+                ? $"select count(*) from INFORMATION_SCHEMA.TABLES where TABLE_NAME = '{UnquotedSchemaTableName.ToUpper()}'"
+                : $"select count(*) from INFORMATION_SCHEMA.TABLES where TABLE_NAME = '{UnquotedSchemaTableName.ToUpper()}' and TABLE_SCHEMA = '{SchemaTableSchema.ToUpper()}'";
 
         protected override string CreateSchemaTableSql(string quotedPrimaryKeyName)
         {
@@ -57,7 +57,7 @@ namespace DbUp.Snowflake
             (
                 schemaversionsid int identity,
                 scriptname varchar(255),
-                applied timestamp           
+                applied timestamp
             )";
         }
     }
