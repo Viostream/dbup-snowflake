@@ -10,6 +10,7 @@ on:
 name: Sonar Analysis
 jobs:
   sonarcloud:
+    if: 1 == 2
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

@@ -3,15 +3,24 @@
     <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
     <!-- SonarQube needs this -->
     <ProjectGuid>{66666666-FECC-FECC-FECC-666666666666}</ProjectGuid>
-    <PackageId>DbUp.Snowflake</PackageId>
-    <company>Viostream</company>
+    <PackageId>B3zaleel.DbUp.Snowflake</PackageId>
+    <Authors>B3zaleel</Authors>
     <PackageDescription>Snowflake extensions for DbUp</PackageDescription>
-    <RepositoryUrl>https://github.com/viostream/dbup-snowflake/</RepositoryUrl>
+    <PackageReadmeFile>tools/net7.0/any/README.md</PackageReadmeFile>
+    <Description>Snowflake extensions for DbUp</Description>
+    <RepositoryUrl>https://github.com/B3zaleel/dbup-snowflake/</RepositoryUrl>
+    <PackageOutputPath>./nupkg</PackageOutputPath>
     <!-- The real version will be injected by Github Actions - don't change this line -->
     <Version>0.0.1</Version>
   </PropertyGroup>
-   <ItemGroup>
+  <ItemGroup>
     <PackageReference Include="dbup-core" Version="4.4.0" />
     <PackageReference Include="System.Data.Odbc" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="./README.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>
