@@ -1,13 +1,12 @@
 # DbUp Snowflake extensions
 
-[![Nuget Package](https://img.shields.io/nuget/v/DbUp.Snowflake.svg?label=DbUp.Snowflake)](https://www.nuget.org/packages/DbUp.Snowflake/)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Viostream_dbup-snowflake&metric=alert_status)](https://sonarcloud.io/dashboard?id=Viostream_dbup-snowflake)
+[![Nuget Package](https://img.shields.io/nuget/v/B3zaleel.DbUp.Snowflake.svg?label=B3zaleel.DbUp.Snowflake)](https://www.nuget.org/packages/B3zaleel.DbUp.Snowflake/)
 
-Snowflake extentions for DbUp, distributed via [NuGet](https://www.nuget.org/packages/DbUp.Snowflake)
+Snowflake extensions for DbUp, distributed via [NuGet](https://www.nuget.org/packages/B3zaleel.DbUp.Snowflake)
 
 ## Install
 
-Use [Nuget](https://www.nuget.org/packages/DbUp.Snowflake/).
+Use [Nuget](https://www.nuget.org/packages/B3zaleel.DbUp.Snowflake/).
 
 ## Use
 
