@@ -1,0 +1,32 @@
+name: Publish
+
+on:
+  push:
+    branches: ["master"]
+
+jobs:
+  publish:
+    name: Publish Package
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version: [8.x, 7.x, 6.x]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: ${{ matrix.version }}
+      - id: tag
+        uses: Viostream/github-tag-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Write out version
+        run: |
+          version=${{ steps.tag.outputs.new_tag }}
+          sed -i 's|<Version>0.0.1</Version>|<Version>'${version#v}'</Version>|' DbUp.Snowflake.csproj
+      - name: Build and pack project files
+        run: dotnet pack -c Release
+      - name: Push Nuget packages to Nuget
+        run: dotnet nuget push **/*.nupkg --api-key "${{ secrets.NUGET_API_KEY }}" --source "https://api.nuget.org/v3/index.json" --skip-duplicate
