@@ -1,29 +1,23 @@
-name: Publish to Nuget
+name: Build
 
 on:
   push:
     branches:
       - master
+  pull_request:
+    types: [opened, reopened, synchronize]
 
 jobs:
-  publish:
-    name: publish
+  build:
+    name: Build Package
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           fetch-depth: "0"
-      - id: tag
-        uses: Viostream/github-tag-action@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Write out version
-        run: |
-          version=${{ steps.tag.outputs.new_tag }}
-          sed -i 's|<Version>0.0.1</Version>|<Version>'${version#v}'</Version>|' DbUp.Snowflake.csproj
-      - uses: rohith/publish-nuget@v2
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v3
         with:
-          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
-          PACKAGE_NAME: DbUp.Snowflake
-          PROJECT_FILE_PATH: DbUp.Snowflake.csproj
-          TAG_COMMIT: false
+          dotnet-version: 8.x
+      - name: Run build process
+        run: dotnet build
