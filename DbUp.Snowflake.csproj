@@ -6,7 +6,7 @@
     <PackageId>B3zaleel.DbUp.Snowflake</PackageId>
     <Authors>B3zaleel</Authors>
     <PackageDescription>Snowflake extensions for DbUp</PackageDescription>
-    <PackageReadmeFile>tools/net7.0/any/README.md</PackageReadmeFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <Description>Snowflake extensions for DbUp</Description>
     <RepositoryUrl>https://github.com/B3zaleel/dbup-snowflake/</RepositoryUrl>
     <PackageOutputPath>./nupkg</PackageOutputPath>
@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="./README.md">
+    <None Include="$(MSBuildThisFileDirectory)\README.md" Pack="true" PackagePath="">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
